@@ -32,7 +32,7 @@ class Repository(object):
         return url
 
     @staticmethod
-    def parse_url(url: str) -> tuple[str, str]:
+    def parse_url(url: str) -> tuple[str, str, str]:
         parsed = urllib.parse.urlparse(url)
         if url.startswith("git@"):
             host, repo = parsed.path.split(":")
