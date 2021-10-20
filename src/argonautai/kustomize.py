@@ -2,7 +2,9 @@ import subprocess
 from pathlib import Path
 from typing import Any
 
-import yaml
+import ruamel.yaml
+
+yaml = ruamel.yaml.YAML(typ="safe")
 
 
 class Kustomize(object):
@@ -16,4 +18,4 @@ class Kustomize(object):
             encoding="utf-8",
             capture_output=True,
         )
-        return yaml.safe_load(completed.stdout)
+        return yaml.load(completed.stdout)
